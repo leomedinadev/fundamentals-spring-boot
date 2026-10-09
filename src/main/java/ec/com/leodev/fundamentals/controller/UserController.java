@@ -1,7 +1,7 @@
-package ec.com.leo.dev.fundamentum.spring.boot.controller;
+package ec.com.leodev.fundamentals.controller;
 
-import ec.com.leo.dev.fundamentum.spring.boot.entity.User;
-import ec.com.leo.dev.fundamentum.spring.boot.services.IUserService;
+import ec.com.leodev.fundamentals.entity.User;
+import ec.com.leodev.fundamentals.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
@@ -51,7 +51,7 @@ public class UserController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@RequestBody User user, @PathVariable Long id) {
-        userService.update(user);
+        userService.update(id, user);
         return new ResponseEntity<>("Usuario actualizado exitosamente!", HttpStatus.OK);
     }
 

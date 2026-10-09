@@ -1,4 +1,4 @@
-package ec.com.leo.dev.fundamentum.spring.boot.entity;
+package ec.com.leodev.fundamentals.entity;
 
 import lombok.*;
 

@@ -1,9 +1,9 @@
-package ec.com.leo.dev.fundamentum.spring.boot;
+package ec.com.leodev.fundamentals;
 
-import ec.com.leo.dev.fundamentum.spring.boot.entity.User;
-import ec.com.leo.dev.fundamentum.spring.boot.repository.IPostRepository;
-import ec.com.leo.dev.fundamentum.spring.boot.repository.IUserRepository;
-import ec.com.leo.dev.fundamentum.spring.boot.services.IUserService;
+import ec.com.leodev.fundamentals.entity.User;
+import ec.com.leodev.fundamentals.repository.IPostRepository;
+import ec.com.leodev.fundamentals.repository.IUserRepository;
+import ec.com.leodev.fundamentals.services.IUserService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -21,9 +21,9 @@ import java.util.List;
 @OpenAPIDefinition(
         info = @Info(
                 title = "FUNDAMENTALS SPRING BOOT REST API Documentation",
-                version = "1.0.0-RELEASE",
+                version = "1.1.0-SNAPSHOT",
                 description = "Documentación de la API con OpenAPI 3 - Fundamentos de Spring Boot",
-                contact = @Contact(name = "Leo Medina", email = "tioleodeveloper@gmail.com", url = "https://github.com/leo7medina"),
+                contact = @Contact(name = "Leo Medina", email = "tioleodeveloper@gmail.com", url = "https://github.com/leomedinadev"),
                 license = @License(name = "Apache 2.0", url = "http://www.apache.org/licenses/LICENSE-2.0.html")
         )
 )

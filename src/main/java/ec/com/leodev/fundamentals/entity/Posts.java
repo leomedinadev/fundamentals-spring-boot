@@ -1,5 +1,6 @@
-package ec.com.leo.dev.fundamentum.spring.boot.entity;
+package ec.com.leodev.fundamentals.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,7 +34,8 @@ public class Posts implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "user_id") //No necesario para el ejemplo del curso pero se puede explicar
-    //@JsonBackReference
+    // El usuario ya contiene sus posts: si el post serializa a su usuario, el JSON se vuelve infinito
+    @JsonIgnore
     private User user;
 
     public Posts(String description, User user) {
