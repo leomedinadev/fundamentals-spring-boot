@@ -1,13 +1,15 @@
-package ec.com.leo.dev.fundamentum.spring.boot.services;
+package ec.com.leodev.fundamentals.services;
 
-import ec.com.leo.dev.fundamentum.spring.boot.entity.User;
-import ec.com.leo.dev.fundamentum.spring.boot.repository.IUserRepository;
+import ec.com.leodev.fundamentals.entity.User;
+import ec.com.leodev.fundamentals.repository.IUserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -29,7 +31,8 @@ public class UserService implements IUserService {
 
     @Override
     public User getUserByEmail(String email) {
-        return userRepository.findMyUserByEmail(email).orElseThrow(() -> new RuntimeException(MESSAGE_USER_NOT_FOUND));
+        return userRepository.findMyUserByEmail(email)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, MESSAGE_USER_NOT_FOUND));
     }
 
     @Override
@@ -39,7 +42,8 @@ public class UserService implements IUserService {
 
     @Override
     public User find(Long id) {
-        return userRepository.findById(id).orElse(null);
+        return userRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No existe el usuario " + id));
     }
 
     @Transactional
@@ -50,12 +54,16 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void update(User user) {
+    public void update(Long id, User user) {
+        // El id de la URL manda: sin esto, un cuerpo sin id creaba un usuario nuevo
+        find(id);
+        user.setId(id);
         userRepository.save(user);
     }
 
     @Override
     public void delete(Long id) {
+        find(id);
         userRepository.deleteById(id);
     }
 

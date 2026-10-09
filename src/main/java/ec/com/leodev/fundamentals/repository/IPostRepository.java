@@ -1,6 +1,6 @@
-package ec.com.leo.dev.fundamentum.spring.boot.repository;
+package ec.com.leodev.fundamentals.repository;
 
-import ec.com.leo.dev.fundamentum.spring.boot.entity.Posts;
+import ec.com.leodev.fundamentals.entity.Posts;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

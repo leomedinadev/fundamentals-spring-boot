@@ -1,6 +1,6 @@
-package ec.com.leo.dev.fundamentum.spring.boot.services;
+package ec.com.leodev.fundamentals.services;
 
-import ec.com.leo.dev.fundamentum.spring.boot.entity.User;
+import ec.com.leodev.fundamentals.entity.User;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public interface IUserService {
 
     void save(List<User> users);
 
-    void update(User user);
+    void update(Long id, User user);
 
     void delete(Long id);
 
